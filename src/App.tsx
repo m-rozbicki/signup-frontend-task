@@ -10,7 +10,9 @@ const App = () => (
       <Route path="/signup">
         <Signup />
       </Route>
-      <Route path="/">Root</Route>
+      <Route path="/">
+        <Signup />
+      </Route>
     </Switch>
   </Router>
 );
