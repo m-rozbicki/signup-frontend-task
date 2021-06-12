@@ -1,0 +1,23 @@
+@use '../colors';
+
+.submit {
+  background-color: colors.$secondary;
+  color: colors.$primary;
+  font-size: 1em;
+  font-weight: bold;
+  margin: 2em 0 1em;
+  padding: 1em;
+  border-radius: 1em;
+  border: solid 0.25em transparent;
+  outline: none;
+  cursor: pointer;
+  transition: background-color 0.5s ease-out;
+
+  &:focus, &:hover {
+    background-color: colors.$focus
+  }
+
+  &:active {
+    background-color: colors.$active
+  }
+}
