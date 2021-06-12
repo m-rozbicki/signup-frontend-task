@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/orm-frontend-task/static/css/main.faa68c21.chunk.css",
-    "main.js": "/orm-frontend-task/static/js/main.a6122a9a.chunk.js",
-    "main.js.map": "/orm-frontend-task/static/js/main.a6122a9a.chunk.js.map",
+    "main.js": "/orm-frontend-task/static/js/main.e67d5178.chunk.js",
+    "main.js.map": "/orm-frontend-task/static/js/main.e67d5178.chunk.js.map",
     "runtime-main.js": "/orm-frontend-task/static/js/runtime-main.cc92a127.js",
     "runtime-main.js.map": "/orm-frontend-task/static/js/runtime-main.cc92a127.js.map",
     "static/js/2.c6032079.chunk.js": "/orm-frontend-task/static/js/2.c6032079.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.cc92a127.js",
     "static/js/2.c6032079.chunk.js",
     "static/css/main.faa68c21.chunk.css",
-    "static/js/main.a6122a9a.chunk.js"
+    "static/js/main.e67d5178.chunk.js"
   ]
 }
