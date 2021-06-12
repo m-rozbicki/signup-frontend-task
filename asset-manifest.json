@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/orm-frontend-task/static/css/main.faa68c21.chunk.css",
+    "main.js": "/orm-frontend-task/static/js/main.f9a2d6b5.chunk.js",
+    "main.js.map": "/orm-frontend-task/static/js/main.f9a2d6b5.chunk.js.map",
+    "runtime-main.js": "/orm-frontend-task/static/js/runtime-main.cc92a127.js",
+    "runtime-main.js.map": "/orm-frontend-task/static/js/runtime-main.cc92a127.js.map",
+    "static/js/2.81e46c9e.chunk.js": "/orm-frontend-task/static/js/2.81e46c9e.chunk.js",
+    "static/js/2.81e46c9e.chunk.js.map": "/orm-frontend-task/static/js/2.81e46c9e.chunk.js.map",
+    "static/js/3.094c9f15.chunk.js": "/orm-frontend-task/static/js/3.094c9f15.chunk.js",
+    "static/js/3.094c9f15.chunk.js.map": "/orm-frontend-task/static/js/3.094c9f15.chunk.js.map",
+    "index.html": "/orm-frontend-task/index.html",
+    "static/css/main.faa68c21.chunk.css.map": "/orm-frontend-task/static/css/main.faa68c21.chunk.css.map",
+    "static/js/2.81e46c9e.chunk.js.LICENSE.txt": "/orm-frontend-task/static/js/2.81e46c9e.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.cc92a127.js",
+    "static/js/2.81e46c9e.chunk.js",
+    "static/css/main.faa68c21.chunk.css",
+    "static/js/main.f9a2d6b5.chunk.js"
+  ]
+}
