@@ -1,0 +1,23 @@
+@use '../colors';
+
+.layout {
+  background-color: colors.$secondary;
+  color: colors.$primary;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  
+  &__content {
+    width: min-content;
+  }
+  
+  &__children-container {
+    background-color: colors.$primary;
+    color: colors.$secondary;
+    padding: 2em;
+    border-radius: 1em;
+  }
+}

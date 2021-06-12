@@ -1,0 +1,38 @@
+@use '../colors';
+
+.field {
+  padding: 0.5em 0;
+  max-width: 100%;
+
+  &__error {
+    height: 1em;
+    color: colors.$attention;
+  }
+
+  &__required-asterisk {
+    color: colors.$attention;
+  }
+
+  &__input {
+    background-color: colors.$secondary;
+    color: colors.$primary;
+    font-size: 1em;
+    font-weight: bold;
+    width: 25em;
+    margin: 0.25em 0;
+    padding: 1em;
+    max-width: 100%;
+    border-radius: 1em;
+    border: solid 0.25em transparent;
+    outline: none;
+    transition: background-color 0.5s ease-out;
+
+    &:focus, &:hover{
+      background-color: colors.$focus;
+    }
+    
+    &--invalid {
+      background-color: colors.$attention;
+    }
+  }
+}
