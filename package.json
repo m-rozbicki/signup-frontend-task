@@ -69,7 +69,8 @@
           "assert": "either"
         }
       ],
-      "react/jsx-props-no-spreading": "off"
+      "react/jsx-props-no-spreading": "off",
+      "@typescript-eslint/dot-notation": "off"
     }
   },
   "browserslist": {
