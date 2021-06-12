@@ -1,0 +1,55 @@
+name: Road to Production
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone Repository
+        uses: actions/checkout@v2.3.4
+        with:
+          ref: develop
+
+      - name: Retrieve Cache
+        uses: actions/cache@v2
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
+
+      - name: Install Dependencies
+        run: yarn install
+
+      - name: Run Test Suites
+        run: yarn test
+
+      - name: Create Production Build
+        run: yarn build
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v1
+        with:
+          name: production-build
+          path: build
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Clone gh-pages branch
+        uses: actions/checkout@v2.3.4
+        with:
+          ref: develop
+
+      - name: Fetch Artifacts
+        uses: actions/download-artifact@v1
+        with:
+          name: production-build
+
+      - name: Deploy to GH Pages
+        uses: JamesIves/github-pages-deploy-action@4.1.4
+        with:
+          branch: gh-pages
+          folder: production-build
