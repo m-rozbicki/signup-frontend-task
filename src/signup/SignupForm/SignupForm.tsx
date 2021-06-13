@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { Form, Field, Submit } from '../../common/Form';
+import FormError from '../../common/Form/FormError.component';
 
-interface FormValues {
+interface SignupFormValues {
   email: string;
   name: string;
   password: string;
@@ -19,60 +20,74 @@ const validationSchema = Yup.object({
     .required('Please confirm your password'),
 });
 
-const handleSubmit = (values: FormValues) => {
+const onSubmit = (values: SignupFormValues) => {
   // eslint-disable-next-line
   console.log(values);
 };
 
-const SignupForm = () => (
-  <Formik
-    initialValues={{
-      email: '',
-      name: '',
-      password: '',
-      confirmPassword: '',
-    }}
-    validationSchema={validationSchema}
-    onSubmit={handleSubmit}
-  >
-    {(formik) => (
-      <Form onSubmit={formik.handleSubmit}>
-        <Field
-          label="E-mail address"
-          touched={formik.touched.email}
-          error={formik.errors.email}
-          formikProps={formik.getFieldProps('email')}
-          inputProps={{ type: 'email', required: true }}
-        />
+const SignupForm = () => {
+  const [touched, setTouched] = useState(false);
 
-        <Field
-          label="Full name"
-          touched={formik.touched.name}
-          error={formik.errors.name}
-          formikProps={formik.getFieldProps('name')}
-          inputProps={{ type: 'text', required: true }}
-        />
+  const handleSubmit = (
+    handler: (event?: React.FormEvent<HTMLFormElement> | undefined) => void,
+    event?: React.FormEvent<HTMLFormElement> | undefined,
+  ) => {
+    setTouched(true);
+    handler(event);
+  };
 
-        <Field
-          label="Password"
-          touched={formik.touched.password}
-          error={formik.errors.password}
-          formikProps={formik.getFieldProps('password')}
-          inputProps={{ type: 'password', required: true }}
-        />
+  return (
+    <Formik
+      initialValues={{
+        email: '',
+        name: '',
+        password: '',
+        confirmPassword: '',
+      }}
+      validationSchema={validationSchema}
+      onSubmit={onSubmit}
+    >
+      {(formik) => (
+        <Form onSubmit={(event) => handleSubmit(formik.handleSubmit, event)}>
+          <Field
+            label="E-mail address"
+            touched={formik.touched.email}
+            error={formik.errors.email}
+            formikProps={formik.getFieldProps('email')}
+            inputProps={{ type: 'email', required: true }}
+          />
 
-        <Field
-          label="Confirm your password"
-          touched={formik.touched.confirmPassword}
-          error={formik.errors.confirmPassword}
-          formikProps={formik.getFieldProps('confirmPassword')}
-          inputProps={{ type: 'password', required: true }}
-        />
+          <Field
+            label="Full name"
+            touched={formik.touched.name}
+            error={formik.errors.name}
+            formikProps={formik.getFieldProps('name')}
+            inputProps={{ type: 'text', required: true }}
+          />
 
-        <Submit>Continue</Submit>
-      </Form>
-    )}
-  </Formik>
-);
+          <Field
+            label="Password"
+            touched={formik.touched.password}
+            error={formik.errors.password}
+            formikProps={formik.getFieldProps('password')}
+            inputProps={{ type: 'password', required: true }}
+          />
+
+          <Field
+            label="Confirm your password"
+            touched={formik.touched.confirmPassword}
+            error={formik.errors.confirmPassword}
+            formikProps={formik.getFieldProps('confirmPassword')}
+            inputProps={{ type: 'password', required: true }}
+          />
+
+          <FormError isValid={formik.isValid} touched={touched} />
+
+          <Submit>Continue</Submit>
+        </Form>
+      )}
+    </Formik>
+  );
+};
 
 export default SignupForm;
