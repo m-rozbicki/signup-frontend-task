@@ -4,11 +4,15 @@ import * as Yup from 'yup';
 import { Form, Field, Submit } from '../../common/Form';
 import FormError from '../../common/Form/FormError.component';
 
-interface SignupFormValues {
+export interface SignupFormValues {
   email: string;
   name: string;
   password: string;
   confirmPassword: string;
+}
+
+interface SignupFormProps {
+  onSubmit: (values: SignupFormValues) => void;
 }
 
 const validationSchema = Yup.object({
@@ -20,12 +24,7 @@ const validationSchema = Yup.object({
     .required('Please confirm your password'),
 });
 
-const onSubmit = (values: SignupFormValues) => {
-  // eslint-disable-next-line
-  console.log(values);
-};
-
-const SignupForm = () => {
+const SignupForm = ({ onSubmit }: SignupFormProps) => {
   const [touched, setTouched] = useState(false);
 
   const handleSubmit = (
