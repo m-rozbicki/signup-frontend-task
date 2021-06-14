@@ -32,9 +32,11 @@ jobs:
         run: yarn test
 
       - name: Create Production Build
+        if: github.ref == 'refs/heads/develop'
         run: yarn build
 
       - name: Upload Artifacts
+        if: github.ref == 'refs/heads/develop'
         uses: actions/upload-artifact@v1
         with:
           name: production-build
