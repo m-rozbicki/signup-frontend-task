@@ -3,7 +3,7 @@ import {
   render, screen, waitFor, fireEvent,
 } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import SignupForm, { SignupFormValues } from './SignupForm';
+import SignupForm from './SignupForm';
 
 describe('Signup form', () => {
   it('should not crash when rendered', () => {
@@ -152,10 +152,7 @@ describe('Signup form', () => {
       confirmPassword: 'longenoughpassword',
     };
 
-    let submittedValues: SignupFormValues;
-    const handleSubmit = (values: SignupFormValues) => {
-      submittedValues = values;
-    };
+    const handleSubmit = jest.fn();
 
     render(<SignupForm onSubmit={handleSubmit} />);
     const emailInput = screen.getByRole('textbox', { name: /e-mail address/i, exact: false });
@@ -174,7 +171,7 @@ describe('Signup form', () => {
 
     // then
     await waitFor(() => {
-      expect(submittedValues).toEqual(initialValues);
+      expect(handleSubmit).toHaveBeenCalledWith(initialValues, expect.anything());
     });
   });
 
