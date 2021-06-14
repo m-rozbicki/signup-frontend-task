@@ -33,27 +33,17 @@ describe('Signup form', () => {
 
   it('should display errors on blur when required fields are empty', async () => {
     // given
-    const { container } = render(<SignupForm onSubmit={() => {}} />);
+    render(<SignupForm onSubmit={() => {}} />);
 
-    const emailInput = screen.getByRole('textbox', { name: /e-mail address/i, exact: false });
-    const emailError = container.querySelector(`#${emailInput.getAttribute('aria-describedby')}`);
+    const emailInput = screen.getByRole('textbox', { name: /e-mail address/i });
+    const emailError = screen.getByRole('alert', { name: /e-mail address error/i });
 
-    const fullNameInput = screen.getByRole('textbox', { name: /full name/i, exact: false });
-    const fullNameError = container.querySelector(
-      `#${fullNameInput.getAttribute('aria-describedby')}`,
-    );
+    const fullNameInput = screen.getByRole('textbox', { name: /full name/i });
+    const fullNameError = screen.getByRole('alert', { name: /full name error/i });
 
-    const [passwordInput, confirmPasswordInput] = screen.getAllByLabelText(/password/i, {
-      exact: false,
-    });
-
-    const passwordError = container.querySelector(
-      `#${passwordInput.getAttribute('aria-describedby')}`,
-    );
-
-    const confirmPasswordError = container.querySelector(
-      `#${confirmPasswordInput.getAttribute('aria-describedby')}`,
-    );
+    const [passwordInput, confirmPasswordInput] = screen.getAllByLabelText(/password/i);
+    const passwordError = screen.getByRole('alert', { name: /Password error/ });
+    const confirmPasswordError = screen.getByRole('alert', { name: /confirm your password error/i });
 
     // when
     fireEvent.blur(emailInput);
@@ -72,10 +62,10 @@ describe('Signup form', () => {
 
   it('should display error when e-mail is invalid', async () => {
     // given
-    const { container } = render(<SignupForm onSubmit={() => {}} />);
+    render(<SignupForm onSubmit={() => {}} />);
 
     const input = screen.getByRole('textbox', { name: /e-mail address/i, exact: false });
-    const error = container.querySelector(`#${input.getAttribute('aria-describedby')}`);
+    const error = screen.getByRole('alert', { name: /e-mail address error/i });
 
     // when
     userEvent.type(input, 'invalid email');
@@ -89,10 +79,10 @@ describe('Signup form', () => {
 
   it('should display error when full name has no spaces', async () => {
     // given
-    const { container } = render(<SignupForm onSubmit={() => {}} />);
+    render(<SignupForm onSubmit={() => {}} />);
 
     const input = screen.getByRole('textbox', { name: /full name/i, exact: false });
-    const error = container.querySelector(`#${input.getAttribute('aria-describedby')}`);
+    const error = screen.getByRole('alert', { name: /full name error/i });
 
     // when
     userEvent.type(input, 'invalid-name');
@@ -106,10 +96,10 @@ describe('Signup form', () => {
 
   it('should display error when password is too short', async () => {
     // given
-    const { container } = render(<SignupForm onSubmit={() => {}} />);
+    render(<SignupForm onSubmit={() => {}} />);
 
     const [input] = screen.getAllByLabelText(/password/i, { exact: false });
-    const error = container.querySelector(`#${input.getAttribute('aria-describedby')}`);
+    const error = screen.getByRole('alert', { name: /Password error/ });
 
     // when
     userEvent.type(input, 'short');
@@ -123,13 +113,14 @@ describe('Signup form', () => {
 
   it('should display error when confirm password does not match password', async () => {
     // given
-    const { container } = render(<SignupForm onSubmit={() => {}} />);
+    render(<SignupForm onSubmit={() => {}} />);
 
     const [passwordInput, confirmPasswordInput] = screen.getAllByLabelText(/password/i, {
       exact: false,
     });
-    const confirmPasswordError = container.querySelector(
-      `#${confirmPasswordInput.getAttribute('aria-describedby')}`,
+    const confirmPasswordError = screen.getByRole(
+      'alert',
+      { name: 'Confirm your password error' },
     );
 
     // when
