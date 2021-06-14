@@ -75,7 +75,8 @@
         }
       ],
       "react/jsx-props-no-spreading": "off",
-      "@typescript-eslint/dot-notation": "off"
+      "@typescript-eslint/dot-notation": "off",
+      "object-curly-newline": "off"
     }
   },
   "browserslist": {
