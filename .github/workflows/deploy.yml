@@ -3,6 +3,9 @@ on:
   push:
     branches:
       - develop
+  pull_request:
+    branches:
+      - develop
 
 jobs:
   build:
@@ -39,6 +42,7 @@ jobs:
 
   deploy:
     runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/develop'
     needs: build
     steps:
       - name: Clone gh-pages branch
