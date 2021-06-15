@@ -1,8 +1,20 @@
 import React, { ButtonHTMLAttributes } from 'react';
 import styles from './Submit.module.scss';
 
-const Submit = ({ children, ...otherProps }: ButtonHTMLAttributes<HTMLButtonElement>) => (
-  <button type="submit" className={styles['submit']} {...otherProps}>
+interface SubmitProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  status?: 'pending' | 'error' | 'success' | null
+}
+
+const Submit = ({
+  children,
+  status = null,
+  ...otherProps
+}: SubmitProps) => (
+  <button
+    type="submit"
+    className={`${styles['submit']} ${status ? styles[`submit--${status}`] : ''}`}
+    {...otherProps}
+  >
     {children}
   </button>
 );

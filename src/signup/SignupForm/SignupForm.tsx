@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Formik } from 'formik';
-import * as Yup from 'yup';
+import { validationSchema } from './SignupForm.schema';
 import { Form, Field, Submit } from '../../common/Form';
 import FormError from '../../common/Form/FormError.component';
 
@@ -13,21 +13,13 @@ export interface SignupFormValues {
 
 interface SignupFormProps {
   onSubmit: (values: SignupFormValues) => void;
+  error?: string | null;
 }
 
 type FormEvent = React.FormEvent<HTMLFormElement>;
 type FormHandler = (event?: FormEvent) => void;
 
-const validationSchema = Yup.object({
-  email: Yup.string().email('Invalid e-mail address').required('E-mail is required'),
-  name: Yup.string().matches(/[\s]/, 'Missing last name').required('Full name is required'),
-  password: Yup.string().min(8, 'Password is too short').required('Password is required'),
-  confirmPassword: Yup.string()
-    .oneOf([Yup.ref('password'), null], 'Please confirm your password')
-    .required('Please confirm your password'),
-});
-
-const SignupForm = ({ onSubmit }: SignupFormProps) => {
+const SignupForm = ({ onSubmit, error }: SignupFormProps) => {
   const [formTouched, setFormTouched] = useState(false);
 
   const beforeSubmit = (handleSubmit: FormHandler) => (event?: FormEvent) => {
@@ -80,7 +72,7 @@ const SignupForm = ({ onSubmit }: SignupFormProps) => {
             inputProps={{ type: 'password', required: true }}
           />
 
-          <FormError isValid={isValid} touched={formTouched} />
+          <FormError isValid={isValid} touched={formTouched} error={error} />
 
           <Submit>Continue</Submit>
         </Form>
