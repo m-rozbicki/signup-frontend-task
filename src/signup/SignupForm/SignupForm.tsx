@@ -13,6 +13,7 @@ export interface SignupFormValues {
 
 interface SignupFormProps {
   onSubmit: (values: SignupFormValues) => void;
+  error?: string | null;
 }
 
 type FormEvent = React.FormEvent<HTMLFormElement>;
@@ -27,7 +28,7 @@ const validationSchema = Yup.object({
     .required('Please confirm your password'),
 });
 
-const SignupForm = ({ onSubmit }: SignupFormProps) => {
+const SignupForm = ({ onSubmit, error }: SignupFormProps) => {
   const [formTouched, setFormTouched] = useState(false);
 
   const beforeSubmit = (handleSubmit: FormHandler) => (event?: FormEvent) => {
@@ -80,7 +81,7 @@ const SignupForm = ({ onSubmit }: SignupFormProps) => {
             inputProps={{ type: 'password', required: true }}
           />
 
-          <FormError isValid={isValid} touched={formTouched} />
+          <FormError isValid={isValid} touched={formTouched} error={error} />
 
           <Submit>Continue</Submit>
         </Form>
