@@ -10,6 +10,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      REACT_APP_BACKEND_URL: https://api.orm-task.dev/v1
     steps:
       - name: Clone Repository
         uses: actions/checkout@v2.3.4
