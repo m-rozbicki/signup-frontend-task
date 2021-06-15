@@ -9,7 +9,7 @@ interface FormErrorProps {
 
 const FormError = ({ touched, isValid, error }: FormErrorProps) => (
   <div className={styles['form-error']} aria-label="Form error" role="alert">
-    {touched && !isValid && 'Form contains errors'}
+    {touched && !isValid && 'Form contains errors.'}
     {touched && isValid && error}
   </div>
 );
