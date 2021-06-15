@@ -1,26 +1,31 @@
-import { rest } from 'msw';
+import { rest, RestRequest } from 'msw';
+import httpStatus from 'http-status-codes';
+import { SignupFormValues } from '../signup/SignupForm/SignupForm';
+import { validationSchema } from '../signup/SignupForm/SignupForm.schema';
 
 const { REACT_APP_BACKEND_URL } = process.env;
 const delay = process.env.NODE_ENV === 'test' ? 0 : 1500;
 
 export const handlers = [
-  rest.post(`${REACT_APP_BACKEND_URL}/users/register`, async (req, res, ctx) => {
-    if (typeof req.body !== 'string') {
+  rest.post(`${REACT_APP_BACKEND_URL}/users/register`, async (req: RestRequest<SignupFormValues>, res, ctx) => {
+    try {
+      validationSchema.validateSync(req.body);
+    } catch (error) {
       return res(
         ctx.delay(delay),
-        ctx.status(400),
-        ctx.json({ message: 'String body expected.' }),
+        ctx.status(httpStatus.BAD_REQUEST),
+        ctx.json({ message: error }),
       );
     }
 
-    const user = JSON.parse(req.body);
+    const user = req.body;
 
     if (user.email === 'already@registered.com') {
       return res(
         ctx.delay(delay),
-        ctx.status(200),
+        ctx.status(httpStatus.CONFLICT),
         ctx.json({
-          message: "The e-mail address you've provided is already registered.",
+          message: 'The e-mail address you\'ve provided is already registered.',
         }),
       );
     }
@@ -28,7 +33,7 @@ export const handlers = [
     if (user.name === 'fail me') {
       return res(
         ctx.delay(delay),
-        ctx.status(500),
+        ctx.status(httpStatus.INTERNAL_SERVER_ERROR),
         ctx.json({
           message:
             'There was an error processing your form data. Please contact support if issues persist.',
@@ -46,7 +51,7 @@ export const handlers = [
 
     return res(
       ctx.delay(delay),
-      ctx.status(201),
+      ctx.status(httpStatus.CREATED),
       ctx.json({
         message: 'User was successfully registered.',
         user: { name: user.name, email: user.email },
