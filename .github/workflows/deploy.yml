@@ -15,8 +15,6 @@ jobs:
     steps:
       - name: Clone Repository
         uses: actions/checkout@v2.3.4
-        with:
-          ref: develop
 
       - name: Retrieve Cache
         uses: actions/cache@v2
