@@ -3,6 +3,7 @@
 .submit {
   position: relative;
   overflow: hidden;
+  z-index: 0; // fix border clipping on safari
   background-color: colors.$secondary;
   color: colors.$primary;
   font-size: 1em;
@@ -26,6 +27,14 @@
   }
 
   &--pending {
+    &, &:focus, &:hover {
+      background-color: colors.$secondary;
+      color: transparent;
+      border-color: colors.$active;
+      transition: color 0.25s ease;
+      transition: background-color 0.25s ease;
+    }
+
     &::before, &::after {
       content: "";
       position: absolute;
@@ -54,13 +63,6 @@
       animation-duration: 1.5s;
     }
 
-    &, &:focus, &:hover {
-      background-color: colors.$secondary;
-      color: transparent;
-      border-color: colors.$active;
-      transition: color 0.25s ease;
-      transition: background-color 0.25s ease;
-    }
   }
 }
 
