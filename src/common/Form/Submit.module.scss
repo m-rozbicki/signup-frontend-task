@@ -1,23 +1,79 @@
 @use '../colors';
 
 .submit {
+  position: relative;
+  overflow: hidden;
   background-color: colors.$secondary;
   color: colors.$primary;
   font-size: 1em;
   font-weight: bold;
-  margin: 1em 0 2.25em;
+  margin: 0.25em 0 1.375em;
   padding: 1em;
   border-radius: 1em;
   border: solid 0.25em transparent;
   outline: none;
   cursor: pointer;
-  transition: background-color 0.5s ease-out;
+  transition: background-color 0.25s ease;
 
   &:focus, &:hover {
-    background-color: colors.$focus
+    border-color: colors.$active;
+    transition: background-color 0.25s ease;
   }
 
   &:active {
-    background-color: colors.$active
+    background-color: colors.$active;
+    transition: background-color 0.25s ease;
+  }
+
+  &--pending {
+    &::before, &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: 50%;
+      transform: scale(0);
+      animation: button-loading-spinner ease-out infinite;
+    }
+
+    &::after {
+      background-color: colors.$primary;
+      width: 1em;
+      height: 1em;
+      margin: auto;
+      animation-duration: 0.75s;
+    }
+
+    &::before {
+      background-color: colors.$attention;
+      width: 3em;
+      height: 3em;
+      margin: auto;
+      animation-duration: 1.5s;
+    }
+
+    &, &:focus, &:hover {
+      background-color: colors.$secondary;
+      color: transparent;
+      border-color: colors.$active;
+      transition: color 0.25s ease;
+      transition: background-color 0.25s ease;
+    }
+  }
+}
+
+@keyframes button-loading-spinner {
+  0% {
+    transform: scale(0);
+  }
+
+  50% {
+    transform: scale(3);
+  }
+
+  100% {
+    transform: scale(0);
   }
 }
