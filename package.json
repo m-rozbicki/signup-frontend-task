@@ -80,7 +80,8 @@
       "react/jsx-props-no-spreading": "off",
       "@typescript-eslint/dot-notation": "off",
       "object-curly-newline": "off",
-      "import/prefer-default-export": "off"
+      "import/prefer-default-export": "off",
+      "implicit-arrow-linebreak": "off"
     }
   },
   "browserslist": {
