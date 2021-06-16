@@ -3,7 +3,7 @@
 .submit {
   position: relative;
   overflow: hidden;
-  z-index: 0; // fix border clipping on safari
+  z-index: 0; // fix border clipping on Safari
   background-color: colors.$secondary;
   color: colors.$primary;
   font-size: 1em;
