@@ -2,7 +2,7 @@ import React, { ButtonHTMLAttributes } from 'react';
 import styles from './Submit.module.scss';
 
 interface SubmitProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  status?: 'pending' | 'error' | 'success' | null
+  status?: 'pending' | null
 }
 
 const Submit = ({

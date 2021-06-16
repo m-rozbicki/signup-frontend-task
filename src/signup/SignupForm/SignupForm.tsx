@@ -38,7 +38,7 @@ const SignupForm = ({ onSubmit, error }: SignupFormProps) => {
       validationSchema={validationSchema}
       onSubmit={onSubmit}
     >
-      {({ touched, errors, isValid, handleSubmit, getFieldProps }) => (
+      {({ touched, errors, isValid, handleSubmit, getFieldProps, isSubmitting }) => (
         <Form onSubmit={beforeSubmit(handleSubmit)}>
           <Field
             label="E-mail address"
@@ -74,7 +74,7 @@ const SignupForm = ({ onSubmit, error }: SignupFormProps) => {
 
           <FormError isValid={isValid} touched={formTouched} error={error} />
 
-          <Submit>Continue</Submit>
+          <Submit status={isSubmitting ? 'pending' : null}>Continue</Submit>
         </Form>
       )}
     </Formik>

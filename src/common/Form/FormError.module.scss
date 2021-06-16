@@ -1,8 +1,13 @@
 @use '../colors';
 
 .form-error {
-  margin: 1em 0 0;
-  min-height: 1.5em;
-  line-height: 1.2;
   color: colors.$attention;
+  margin: 0.225em 0 0;
+  min-height: 2.4em;
+  width: 85%;
+  display: flex;
+  text-align: center;
+  align-items: flex-end;
+  justify-content: center;
+  line-height: 1.2;
 }
