@@ -8,9 +8,11 @@ interface LayoutProps {
 
 const Layout = ({ title = '', children = null }: LayoutProps) => (
   <div className={styles['layout']}>
-    <div className={styles['layout__content']}>
-      <h1>{title}</h1>
-      <div className={styles['layout__children-container']}>{children}</div>
+    <div className={styles['layout__container']}>
+      <main className={styles['layout__content']}>
+        <h1>{title}</h1>
+        <div className={styles['layout__children-container']}>{children}</div>
+      </main>
     </div>
   </div>
 );

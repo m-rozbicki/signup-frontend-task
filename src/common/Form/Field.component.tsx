@@ -26,10 +26,12 @@ const Field = ({
     >
       {touched ? error : ''}
     </div>
-    <label>
-      {label}
-      <span className={styles['field__required-asterisk']}>
-        {inputProps.required ? ' *' : ''}
+    <label className={styles['field__label']}>
+      <span>
+        {label}
+        <span className={styles['field__required-asterisk']}>
+          {inputProps.required ? ' *' : ''}
+        </span>
       </span>
       <input
         className={`${styles['field__input']} ${
