@@ -1,12 +1,15 @@
 import React from 'react';
 import { HashRouter as Router, Switch, Route } from 'react-router-dom';
 import './App.css';
+import Signin from './signin/Signin/Signin';
 import Signup from './signup/Signup/Signup';
 
 const App = () => (
   <Router>
     <Switch>
-      <Route path="/signin">Sign In</Route>
+      <Route path="/signin">
+        <Signin />
+      </Route>
       <Route path="/signup">
         <Signup />
       </Route>

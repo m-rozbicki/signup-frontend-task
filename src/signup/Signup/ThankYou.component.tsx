@@ -12,7 +12,7 @@ export const ThankYou = ({ user } : ThankYouProps) => (
       <div className={styles['thank-you__ok-hand']}>👌</div>
     </div>
     <div>
-      Thank you for registering <strong>{ user.name }</strong>.<br />
+      Thank you for registering<br /> <strong>{ user.name }</strong>.<br />
       We would send an activation email to<br />
       <strong>{ user.email }</strong><br />
     </div>
