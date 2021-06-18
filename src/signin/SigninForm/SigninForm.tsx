@@ -1,25 +1,23 @@
 import React, { useState } from 'react';
 import { Formik } from 'formik';
-import { SignupValidationSchema } from './SignupForm.schema';
+import { SigninValidationSchema } from './SigninForm.schema';
 import { Form, Field, Submit } from '../../common/Form';
 import FormError from '../../common/Form/FormError.component';
 
-export interface SignupFormValues {
+export interface SigninFormValues {
   email: string;
-  name: string;
   password: string;
-  confirmPassword: string;
 }
 
-interface SignupFormProps {
-  onSubmit: (values: SignupFormValues) => void;
+interface SigninFormProps {
+  onSubmit: (values: SigninFormValues) => void;
   error?: string | null;
 }
 
 type FormEvent = React.FormEvent<HTMLFormElement>;
 type FormHandler = (event?: FormEvent) => void;
 
-const SignupForm = ({ onSubmit, error }: SignupFormProps) => {
+const SigninForm = ({ onSubmit, error }: SigninFormProps) => {
   const [formTouched, setFormTouched] = useState(false);
 
   const beforeSubmit = (handleSubmit: FormHandler) => (event?: FormEvent) => {
@@ -31,11 +29,9 @@ const SignupForm = ({ onSubmit, error }: SignupFormProps) => {
     <Formik
       initialValues={{
         email: '',
-        name: '',
         password: '',
-        confirmPassword: '',
       }}
-      validationSchema={SignupValidationSchema}
+      validationSchema={SigninValidationSchema}
       onSubmit={onSubmit}
     >
       {({ touched, errors, isValid, handleSubmit, getFieldProps, isSubmitting }) => (
@@ -49,26 +45,10 @@ const SignupForm = ({ onSubmit, error }: SignupFormProps) => {
           />
 
           <Field
-            label="Full name"
-            touched={touched.name}
-            error={errors.name}
-            formikProps={getFieldProps('name')}
-            inputProps={{ type: 'text', required: true }}
-          />
-
-          <Field
             label="Password"
             touched={touched.password}
             error={errors.password}
             formikProps={getFieldProps('password')}
-            inputProps={{ type: 'password', required: true }}
-          />
-
-          <Field
-            label="Confirm your password"
-            touched={touched.confirmPassword}
-            error={errors.confirmPassword}
-            formikProps={getFieldProps('confirmPassword')}
             inputProps={{ type: 'password', required: true }}
           />
 
@@ -81,4 +61,4 @@ const SignupForm = ({ onSubmit, error }: SignupFormProps) => {
   );
 };
 
-export default SignupForm;
+export default SigninForm;

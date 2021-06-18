@@ -1,5 +1,6 @@
 import axios, { AxiosResponse } from 'axios';
 import { SignupFormValues } from '../signup/SignupForm/SignupForm';
+import { SigninFormValues } from '../signin/SigninForm/SigninForm';
 
 export interface RegisteredUser {
   name: string;
@@ -25,5 +26,9 @@ export const apiClient = {
       values,
     ),
 
-  authenthicateUser: () => {},
+  authenthicateUser: (values: SigninFormValues) =>
+    httpClient.post<RegistrationResponse>(
+      '/users/authenthicate',
+      values,
+    ),
 };
