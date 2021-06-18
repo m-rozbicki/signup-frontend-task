@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Formik } from 'formik';
-import { validationSchema } from './SignupForm.schema';
+import { SignupValidationSchema } from './SignupForm.schema';
 import { Form, Field, Submit } from '../../common/Form';
 import FormError from '../../common/Form/FormError.component';
 
@@ -35,7 +35,7 @@ const SignupForm = ({ onSubmit, error }: SignupFormProps) => {
         password: '',
         confirmPassword: '',
       }}
-      validationSchema={validationSchema}
+      validationSchema={SignupValidationSchema}
       onSubmit={onSubmit}
     >
       {({ touched, errors, isValid, handleSubmit, getFieldProps, isSubmitting }) => (
