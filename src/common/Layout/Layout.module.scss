@@ -5,13 +5,17 @@
   background-color: colors.$secondary;
   width: 100%;
   min-height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   
   &__container {
-    padding: 0.5em;
+    width: calc(100% - 1em);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin: 2em 0 4em;
   }
   
   &__content {
