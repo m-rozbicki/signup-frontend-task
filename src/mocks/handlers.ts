@@ -1,7 +1,9 @@
 import { rest, RestRequest } from 'msw';
 import httpStatus from 'http-status-codes';
 import { SignupFormValues } from '../signup/SignupForm/SignupForm';
-import { validationSchema } from '../signup/SignupForm/SignupForm.schema';
+import { SignupValidationSchema } from '../signup/SignupForm/SignupForm.schema';
+import { SigninFormValues } from '../signin/SigninForm/SigninForm';
+import { SigninValidationSchema } from '../signin/SigninForm/SigninForm.schema';
 
 const { REACT_APP_BACKEND_URL } = process.env;
 
@@ -14,7 +16,7 @@ const randomizeDelay = (standardDelay: number) =>
 export const handlers = [
   rest.post(`${REACT_APP_BACKEND_URL}/users/register`, async (req: RestRequest<SignupFormValues>, res, ctx) => {
     try {
-      validationSchema.validateSync(req.body);
+      SignupValidationSchema.validateSync(req.body);
     } catch (error) {
       return res(
         ctx.delay(randomizeDelay(delay)),
@@ -60,6 +62,58 @@ export const handlers = [
       ctx.json({
         message: 'User was successfully registered.',
         user: { name: user.name, email: user.email },
+      }),
+    );
+  }),
+
+  rest.post(`${REACT_APP_BACKEND_URL}/users/authenthicate`, async (req: RestRequest<SigninFormValues>, res, ctx) => {
+    try {
+      SigninValidationSchema.validateSync(req.body);
+    } catch (error) {
+      return res(
+        ctx.delay(randomizeDelay(delay)),
+        ctx.status(httpStatus.BAD_REQUEST),
+        ctx.json({ message: error }),
+      );
+    }
+
+    const user = req.body;
+
+    if (user.email === 'fail@me.com') {
+      return res(
+        ctx.delay(randomizeDelay(delay)),
+        ctx.status(httpStatus.INTERNAL_SERVER_ERROR),
+        ctx.json({
+          message:
+            'There was an error processing your form data. Please contact support if issues persist.',
+        }),
+      );
+    }
+
+    if (user.email === 'timeout@me.com') {
+      return res(ctx.delay('infinite'));
+    }
+
+    if (user.email === 'network.error@me.com') {
+      return res.networkError('Failed to connect.');
+    }
+
+    if (user.email === 'john.doe@mail.com' && user.password === 'longenoughpassword') {
+      return res(
+        ctx.delay(randomizeDelay(delay)),
+        ctx.status(httpStatus.OK),
+        ctx.json({
+          message: 'User was successfully logged in.',
+          user: { name: 'John Doe', email: user.email },
+        }),
+      );
+    }
+
+    return res(
+      ctx.delay(randomizeDelay(delay)),
+      ctx.status(httpStatus.UNAUTHORIZED),
+      ctx.json({
+        message: 'Provided e-mail or password is incorrect.',
       }),
     );
   }),
