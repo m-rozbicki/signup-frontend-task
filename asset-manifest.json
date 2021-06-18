@@ -1,22 +1,23 @@
 {
   "files": {
-    "main.css": "/orm-frontend-task/static/css/main.a7dd7968.chunk.css",
-    "main.js": "/orm-frontend-task/static/js/main.cbaf2ee8.chunk.js",
-    "main.js.map": "/orm-frontend-task/static/js/main.cbaf2ee8.chunk.js.map",
-    "runtime-main.js": "/orm-frontend-task/static/js/runtime-main.9eaf3524.js",
-    "runtime-main.js.map": "/orm-frontend-task/static/js/runtime-main.9eaf3524.js.map",
-    "static/js/2.a89843ca.chunk.js": "/orm-frontend-task/static/js/2.a89843ca.chunk.js",
-    "static/js/2.a89843ca.chunk.js.map": "/orm-frontend-task/static/js/2.a89843ca.chunk.js.map",
-    "static/js/3.fe70df46.chunk.js": "/orm-frontend-task/static/js/3.fe70df46.chunk.js",
-    "static/js/3.fe70df46.chunk.js.map": "/orm-frontend-task/static/js/3.fe70df46.chunk.js.map",
+    "main.css": "/orm-frontend-task/static/css/main.1cd34a9d.chunk.css",
+    "main.js": "/orm-frontend-task/static/js/main.640a7090.chunk.js",
+    "main.js.map": "/orm-frontend-task/static/js/main.640a7090.chunk.js.map",
+    "runtime-main.js": "/orm-frontend-task/static/js/runtime-main.4a07c1e0.js",
+    "runtime-main.js.map": "/orm-frontend-task/static/js/runtime-main.4a07c1e0.js.map",
+    "static/js/2.9ed6f6ff.chunk.js": "/orm-frontend-task/static/js/2.9ed6f6ff.chunk.js",
+    "static/js/2.9ed6f6ff.chunk.js.map": "/orm-frontend-task/static/js/2.9ed6f6ff.chunk.js.map",
+    "static/js/3.8bbfaebe.chunk.js": "/orm-frontend-task/static/js/3.8bbfaebe.chunk.js",
+    "static/js/3.8bbfaebe.chunk.js.map": "/orm-frontend-task/static/js/3.8bbfaebe.chunk.js.map",
     "index.html": "/orm-frontend-task/index.html",
-    "static/css/main.a7dd7968.chunk.css.map": "/orm-frontend-task/static/css/main.a7dd7968.chunk.css.map",
-    "static/js/2.a89843ca.chunk.js.LICENSE.txt": "/orm-frontend-task/static/js/2.a89843ca.chunk.js.LICENSE.txt"
+    "static/css/main.1cd34a9d.chunk.css.map": "/orm-frontend-task/static/css/main.1cd34a9d.chunk.css.map",
+    "static/js/2.9ed6f6ff.chunk.js.LICENSE.txt": "/orm-frontend-task/static/js/2.9ed6f6ff.chunk.js.LICENSE.txt",
+    "static/media/logo.d206c7a9.svg": "/orm-frontend-task/static/media/logo.d206c7a9.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.9eaf3524.js",
-    "static/js/2.a89843ca.chunk.js",
-    "static/css/main.a7dd7968.chunk.css",
-    "static/js/main.cbaf2ee8.chunk.js"
+    "static/js/runtime-main.4a07c1e0.js",
+    "static/js/2.9ed6f6ff.chunk.js",
+    "static/css/main.1cd34a9d.chunk.css",
+    "static/js/main.640a7090.chunk.js"
   ]
 }
