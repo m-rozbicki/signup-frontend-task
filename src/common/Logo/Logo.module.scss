@@ -1,0 +1,18 @@
+@use '../colors';
+
+.logo {
+    height: 10em;
+
+    &__circle {
+        transition: fill ease-in 0.25s;
+        fill: colors.$attention;
+
+        &--raspberry {
+            fill: colors.$attention;
+        }
+
+        &--blackberry {
+            fill: colors.$primary;
+        }
+    }
+}
