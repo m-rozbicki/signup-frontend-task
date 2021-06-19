@@ -1,6 +1,7 @@
 import React from 'react';
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { HashRouter } from 'react-router-dom';
 import Signup from './Signup';
 import { server } from '../../mocks/server';
 
@@ -17,7 +18,7 @@ describe('Signup', () => {
       confirmPassword: 'longenoughpassword',
     };
 
-    render(<Signup />);
+    render(<HashRouter><Signup /></HashRouter>);
     const emailInput = screen.getByRole('textbox', { name: /e-mail address/i, exact: false });
     const fullNameInput = screen.getByRole('textbox', { name: /full name/i, exact: false });
     const [passwordInput, confirmPasswordInput] = screen.getAllByLabelText(/password/i, {
@@ -48,7 +49,7 @@ describe('Signup', () => {
       confirmPassword: 'longenoughpassword',
     };
 
-    render(<Signup />);
+    render(<HashRouter><Signup /></HashRouter>);
     const emailInput = screen.getByRole('textbox', { name: /e-mail address/i, exact: false });
     const fullNameInput = screen.getByRole('textbox', { name: /full name/i, exact: false });
     const [passwordInput, confirmPasswordInput] = screen.getAllByLabelText(/password/i, {
@@ -79,7 +80,7 @@ describe('Signup', () => {
       confirmPassword: 'longenoughpassword',
     };
 
-    render(<Signup />);
+    render(<HashRouter><Signup /></HashRouter>);
     const emailInput = screen.getByRole('textbox', { name: /e-mail address/i, exact: false });
     const fullNameInput = screen.getByRole('textbox', { name: /full name/i, exact: false });
     const [passwordInput, confirmPasswordInput] = screen.getAllByLabelText(/password/i, {
@@ -110,7 +111,7 @@ describe('Signup', () => {
       confirmPassword: 'longenoughpassword',
     };
 
-    render(<Signup />);
+    render(<HashRouter><Signup /></HashRouter>);
     const emailInput = screen.getByRole('textbox', { name: /e-mail address/i, exact: false });
     const fullNameInput = screen.getByRole('textbox', { name: /full name/i, exact: false });
     const [passwordInput, confirmPasswordInput] = screen.getAllByLabelText(/password/i, {
