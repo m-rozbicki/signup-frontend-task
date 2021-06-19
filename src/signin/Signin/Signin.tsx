@@ -3,12 +3,7 @@ import { AxiosError } from 'axios';
 import Layout from '../../common/Layout/Layout.component';
 import { apiClient } from '../../services/apiClient';
 import SigninForm, { SigninFormValues } from '../SigninForm/SigninForm';
-import { ThankYou } from '../../signup/Signup/ThankYou.component';
-
-interface RegisteredUser {
-  name: string;
-  email: string;
-}
+import { useAuth } from '../../services/Auth.context';
 
 enum AxiosCode {
   TimeoutError = 'ECONNABORTED',
@@ -28,7 +23,7 @@ const extractMessage = (error: AxiosError) => {
 
 const Signin = () => {
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
-  const [authenthicatedUser, setAuthenthicatedUser] = useState<RegisteredUser | null>(null);
+  const { login } = useAuth();
 
   const handleSubmit = useCallback(async (values: SigninFormValues) => {
     try {
@@ -48,19 +43,15 @@ const Signin = () => {
         return;
       }
 
-      setAuthenthicatedUser(user);
+      login(user);
     } catch (error) {
       setErrorMessage(extractMessage(error));
     }
-  }, []);
+  }, [login]);
 
   return (
     <Layout title="Sign in">
-      {
-        authenthicatedUser
-          ? <ThankYou user={authenthicatedUser} />
-          : <SigninForm onSubmit={handleSubmit} error={errorMessage} />
-      }
+      <SigninForm onSubmit={handleSubmit} error={errorMessage} />
     </Layout>
   );
 };
