@@ -1,5 +1,6 @@
 import React, { useState, useCallback } from 'react';
 import { AxiosError } from 'axios';
+import { Link } from 'react-router-dom';
 import Layout from '../../common/Layout/Layout.component';
 import { apiClient } from '../../services/apiClient';
 import SignupForm, { SignupFormValues } from '../SignupForm/SignupForm';
@@ -25,6 +26,8 @@ const extractMessage = (error: AxiosError) => {
 
   return error.message;
 };
+
+const link = <>Already using our app? <Link to="/signin">Click here to sign in</Link></>;
 
 const Signup = () => {
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
@@ -55,7 +58,7 @@ const Signup = () => {
   }, []);
 
   return (
-    <Layout title="Sign up">
+    <Layout title="Sign up" link={link}>
       {
         registeredUser
           ? <ThankYou user={registeredUser} />
