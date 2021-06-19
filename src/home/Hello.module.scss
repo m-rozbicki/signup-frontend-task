@@ -1,0 +1,11 @@
+.hello {
+    text-align: center;
+    
+    & > div {
+        margin: 1em 0;
+    }
+
+    &__wave {
+        font-size: 5em;
+    }
+}
