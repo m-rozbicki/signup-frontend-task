@@ -1,23 +1,28 @@
 import React from 'react';
-import { HashRouter as Router, Switch, Route } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import './App.css';
-import Signin from './signin/Signin/Signin';
-import Signup from './signup/Signup/Signup';
+import { AuthenthicatedApp } from './AuthenthicatedApp';
+import { AuthProvider, useAuth } from './services/Auth.context';
+import { UnauthenthicatedApp } from './UnauthenthicatedApp';
 
 const App = () => (
-  <Router>
-    <Switch>
-      <Route path="/signin">
-        <Signin />
-      </Route>
-      <Route path="/signup">
-        <Signup />
-      </Route>
-      <Route path="/">
-        <Signup />
-      </Route>
-    </Switch>
-  </Router>
+  <AuthProvider>
+    <Router />
+  </AuthProvider>
 );
+
+const Router = () => {
+  const { user } = useAuth();
+
+  return (
+    <HashRouter>
+      {
+        user
+          ? <AuthenthicatedApp />
+          : <UnauthenthicatedApp />
+      }
+    </HashRouter>
+  );
+};
 
 export default App;
