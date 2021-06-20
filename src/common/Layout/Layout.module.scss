@@ -33,5 +33,14 @@
   &__link {
     margin-top: 1em;
     text-align: center;
+    color: colors.$primary;
+
+    a, a:visited {
+      color: colors.$primary;
+    }
+
+    a:active {
+      color: colors.$active;
+    }
   }
 }
