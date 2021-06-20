@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "https://mrormcandidate.github.io/orm-frontend-task/with-transitions/static/css/main.8fbe28c5.chunk.css",
+    "main.js": "https://mrormcandidate.github.io/orm-frontend-task/with-transitions/static/js/main.e0f4f051.chunk.js",
+    "main.js.map": "https://mrormcandidate.github.io/orm-frontend-task/with-transitions/static/js/main.e0f4f051.chunk.js.map",
+    "runtime-main.js": "https://mrormcandidate.github.io/orm-frontend-task/with-transitions/static/js/runtime-main.4e49755c.js",
+    "runtime-main.js.map": "https://mrormcandidate.github.io/orm-frontend-task/with-transitions/static/js/runtime-main.4e49755c.js.map",
+    "static/js/2.d12d6438.chunk.js": "https://mrormcandidate.github.io/orm-frontend-task/with-transitions/static/js/2.d12d6438.chunk.js",
+    "static/js/2.d12d6438.chunk.js.map": "https://mrormcandidate.github.io/orm-frontend-task/with-transitions/static/js/2.d12d6438.chunk.js.map",
+    "index.html": "https://mrormcandidate.github.io/orm-frontend-task/with-transitions/index.html",
+    "static/css/main.8fbe28c5.chunk.css.map": "https://mrormcandidate.github.io/orm-frontend-task/with-transitions/static/css/main.8fbe28c5.chunk.css.map",
+    "static/js/2.d12d6438.chunk.js.LICENSE.txt": "https://mrormcandidate.github.io/orm-frontend-task/with-transitions/static/js/2.d12d6438.chunk.js.LICENSE.txt",
+    "static/media/logo.d206c7a9.svg": "https://mrormcandidate.github.io/orm-frontend-task/with-transitions/static/media/logo.d206c7a9.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.4e49755c.js",
+    "static/js/2.d12d6438.chunk.js",
+    "static/css/main.8fbe28c5.chunk.css",
+    "static/js/main.e0f4f051.chunk.js"
+  ]
+}
