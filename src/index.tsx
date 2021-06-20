@@ -5,15 +5,10 @@ import { worker } from './mocks/browser';
 import './index.css';
 
 const main = async () => {
-  if (window.location.pathname === '/orm-frontend-task') {
-    window.location.pathname += '/';
-    return;
-  }
-
   await worker.start({
     waitUntilReady: true,
     serviceWorker: {
-      url: '/orm-frontend-task/mockServiceWorker.js',
+      url: '/mockServiceWorker.js',
     },
   });
 
