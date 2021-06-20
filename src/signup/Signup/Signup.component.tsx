@@ -1,10 +1,10 @@
 import React, { useState, useCallback } from 'react';
 import { AxiosError } from 'axios';
 import { Link } from 'react-router-dom';
-import Layout from '../../common/Layout/Layout.component';
-import { apiClient } from '../../services/apiClient';
-import SigninForm, { SigninFormValues } from '../SigninForm/SigninForm';
-import { useAuth } from '../../services/Auth.context';
+import { Layout } from '../../common/Layout/Layout.component';
+import { apiClient, RegisteredUser } from '../../services/apiClient';
+import { SignupForm, SignupFormValues } from '../SignupForm/SignupForm.component';
+import { ThankYou } from './ThankYou.component';
 
 enum AxiosCode {
   TimeoutError = 'ECONNABORTED',
@@ -22,16 +22,16 @@ const extractMessage = (error: AxiosError) => {
   return error.message;
 };
 
-const link = <>Not our member yet? <Link to="/signup">Click here to create new account</Link></>;
+const link = <>Already using our app? <Link to="/signin">Click here to sign in</Link></>;
 
-const Signin = () => {
+const Signup = () => {
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
-  const { login } = useAuth();
+  const [registeredUser, setRegisteredUser] = useState<RegisteredUser | null>(null);
 
-  const handleSubmit = useCallback(async (values: SigninFormValues) => {
+  const handleSubmit = useCallback(async (values: SignupFormValues) => {
     try {
       setErrorMessage(null);
-      const response = await apiClient.authenthicateUser(values);
+      const response = await apiClient.registerUser(values);
 
       const { message, user } = response.data;
 
@@ -46,17 +46,23 @@ const Signin = () => {
         return;
       }
 
-      login(user);
+      setRegisteredUser(user);
     } catch (error) {
       setErrorMessage(extractMessage(error));
     }
-  }, [login]);
+  }, []);
 
   return (
-    <Layout title="Sign in" link={link}>
-      <SigninForm onSubmit={handleSubmit} error={errorMessage} />
+    <Layout title="Sign up" link={link}>
+      {
+        registeredUser
+          ? <ThankYou user={registeredUser} />
+          : <SignupForm onSubmit={handleSubmit} error={errorMessage} />
+      }
     </Layout>
   );
 };
 
-export default Signin;
+export {
+  Signup,
+};

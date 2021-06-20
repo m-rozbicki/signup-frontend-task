@@ -1,6 +1,6 @@
 import axios, { AxiosResponse } from 'axios';
-import { SignupFormValues } from '../signup/SignupForm/SignupForm';
-import { SigninFormValues } from '../signin/SigninForm/SigninForm';
+import { SignupFormValues } from '../signup/SignupForm/SignupForm.component';
+import { SigninFormValues } from '../signin/SigninForm/SigninForm.component';
 
 export interface RegisteredUser {
   name: string;
@@ -19,7 +19,7 @@ const httpClient = axios.create({
   timeout: 5000,
 });
 
-export const apiClient = {
+const apiClient = {
   registerUser: (values: SignupFormValues) =>
     httpClient.post<RegistrationResponse>(
       '/users/register',
@@ -31,4 +31,8 @@ export const apiClient = {
       '/users/authenthicate',
       values,
     ),
+};
+
+export {
+  apiClient,
 };

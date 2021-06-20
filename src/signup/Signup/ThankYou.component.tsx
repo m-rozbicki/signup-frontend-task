@@ -6,7 +6,7 @@ interface ThankYouProps {
   user: RegisteredUser
 }
 
-export const ThankYou = ({ user } : ThankYouProps) => (
+const ThankYou = ({ user } : ThankYouProps) => (
   <div className={styles['thank-you']} role="status" aria-label="Thank You">
     <div>
       <div className={styles['thank-you__ok-hand']}>👌</div>
@@ -22,3 +22,7 @@ export const ThankYou = ({ user } : ThankYouProps) => (
     </div>
   </div>
 );
+
+export {
+  ThankYou,
+};

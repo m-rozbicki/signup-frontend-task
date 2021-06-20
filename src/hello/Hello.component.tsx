@@ -1,6 +1,6 @@
 import React from 'react';
 import { Submit } from '../common/Form';
-import Layout from '../common/Layout/Layout.component';
+import { Layout } from '../common/Layout/Layout.component';
 import { useAuth } from '../services/Auth.context';
 import styles from './Hello.module.scss';
 

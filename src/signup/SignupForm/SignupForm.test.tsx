@@ -3,7 +3,7 @@ import {
   render, screen, waitFor, fireEvent,
 } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import SignupForm from './SignupForm';
+import { SignupForm } from './SignupForm.component';
 
 describe('Signup form', () => {
   it('should not crash when rendered', () => {

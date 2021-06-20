@@ -14,4 +14,6 @@ const FormError = ({ touched, isValid, error }: FormErrorProps) => (
   </div>
 );
 
-export default FormError;
+export {
+  FormError,
+};

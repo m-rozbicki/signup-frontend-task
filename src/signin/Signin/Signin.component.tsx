@@ -1,15 +1,10 @@
 import React, { useState, useCallback } from 'react';
 import { AxiosError } from 'axios';
 import { Link } from 'react-router-dom';
-import Layout from '../../common/Layout/Layout.component';
+import { Layout } from '../../common/Layout/Layout.component';
 import { apiClient } from '../../services/apiClient';
-import SignupForm, { SignupFormValues } from '../SignupForm/SignupForm';
-import { ThankYou } from './ThankYou.component';
-
-interface RegisteredUser {
-  name: string;
-  email: string;
-}
+import { SigninForm, SigninFormValues } from '../SigninForm/SigninForm.component';
+import { useAuth } from '../../services/Auth.context';
 
 enum AxiosCode {
   TimeoutError = 'ECONNABORTED',
@@ -27,16 +22,16 @@ const extractMessage = (error: AxiosError) => {
   return error.message;
 };
 
-const link = <>Already using our app? <Link to="/signin">Click here to sign in</Link></>;
+const link = <>Not our member yet? <Link to="/signup">Click here to create new account</Link></>;
 
-const Signup = () => {
+const Signin = () => {
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
-  const [registeredUser, setRegisteredUser] = useState<RegisteredUser | null>(null);
+  const { login } = useAuth();
 
-  const handleSubmit = useCallback(async (values: SignupFormValues) => {
+  const handleSubmit = useCallback(async (values: SigninFormValues) => {
     try {
       setErrorMessage(null);
-      const response = await apiClient.registerUser(values);
+      const response = await apiClient.authenthicateUser(values);
 
       const { message, user } = response.data;
 
@@ -51,21 +46,19 @@ const Signup = () => {
         return;
       }
 
-      setRegisteredUser(user);
+      login(user);
     } catch (error) {
       setErrorMessage(extractMessage(error));
     }
-  }, []);
+  }, [login]);
 
   return (
-    <Layout title="Sign up" link={link}>
-      {
-        registeredUser
-          ? <ThankYou user={registeredUser} />
-          : <SignupForm onSubmit={handleSubmit} error={errorMessage} />
-      }
+    <Layout title="Sign in" link={link}>
+      <SigninForm onSubmit={handleSubmit} error={errorMessage} />
     </Layout>
   );
 };
 
-export default Signup;
+export {
+  Signin,
+};

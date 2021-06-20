@@ -23,4 +23,6 @@ const Layout = ({ title = '', link = '', children = null }: LayoutProps) => (
   </div>
 );
 
-export default Layout;
+export {
+  Layout,
+};
