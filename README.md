@@ -1,46 +1,37 @@
-# Getting Started with Create React App
+# Frontend Recruitment Task
+This project is an implementation of a recruitment task.
+The goal was to create two pages with sign up and sign in form.
+React with TypeScript was chosen as the framework and Airbnb's config was adapted for linting.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Technology Stack
+- [React](https://reactjs.org/) - a JavaScript library for building user interfaces
+- [TypeScript](https://www.typescriptlang.org/) - static type definitions for JavaScript
+- [Formik](https://formik.org/) & [Yup](https://github.com/jquense/yup) - keeps track of values/errors/visited fields and validation
+- [Mock Service Worker](https://mswjs.io/) - intercepts requests on the network level, used for tests and prototyping
+- [React Router](https://reactrouter.com/) - collection of navigational components
+- [React Transition Group](https://reactcommunity.org/react-transition-group/) - exposes transition stages, manages classes and group elements
+- [Jest](https://jestjs.io/) & [React Testing Library](https://testing-library.com/) - JavaScript Testing Framework and testing utilities
+- [GitHub Actions](https://github.com/features/actions) & [GitHub Pages](https://pages.github.com/) - builds, tests, and deploys your code right from GitHub
 
-## Available Scripts
+## Installation
+Install with yarn:
+```
+yarn install
+```
+Lint and run tests:
+```
+yarn lint && yarn test
+```
+Start the app:
+```
+yarn start
+```
 
-In the project directory, you can run:
+## Tests
+Tests can be found along the components. Mock Service Worker was used both for tests and API response simulation in the built app so real (Axios) requests could have been implemented. Validation schemas are shared between the sign up and sign in forms and MSW.
 
-### `yarn start`
+## CI/CD
+To be described.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Design
+The design follows the provided wireframes. Color scheme was inspired by blackberries and raspberries. A simple logo is included that transforms between the two to catch user's attention and make the design more fun and remarkable.
