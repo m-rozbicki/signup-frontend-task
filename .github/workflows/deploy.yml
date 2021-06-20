@@ -4,6 +4,7 @@ on:
     branches:
       - master
       - develop
+      - with-transitions
   pull_request:
     branches:
       - master
@@ -58,6 +59,19 @@ jobs:
         with:
           name: staging-build
           path: build
+
+      - name: Create Build With Transitions
+        if: github.ref == 'refs/heads/with-transitions'
+        env:
+          REACT_APP_MSW_PATHNAME: 'orm-frontend-task/with-transitions'
+        run: yarn build:with-transitions
+
+      - name: Upload With Transitions Artifacts
+        if: github.ref == 'refs/heads/with-transitions'
+        uses: actions/upload-artifact@v1
+        with:
+          name: with-transitions-build
+          path: build
   
   deploy-production:
     runs-on: ubuntu-latest
@@ -101,3 +115,25 @@ jobs:
           branch: gh-pages
           folder: staging-build
           target-folder: staging
+  
+  deploy-with-transitions:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/with-transitions'
+    needs: build
+    steps:
+      - name: Clone gh-pages branch
+        uses: actions/checkout@v2.3.4
+        with:
+          ref: with-transitions
+
+      - name: Fetch Artifacts
+        uses: actions/download-artifact@v1
+        with:
+          name: with-transitions-build
+
+      - name: Deploy to GH Pages
+        uses: JamesIves/github-pages-deploy-action@4.1.4
+        with:
+          branch: gh-pages
+          folder: with-transitions-build
+          target-folder: with-transitions
