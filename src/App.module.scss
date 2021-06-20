@@ -1,0 +1,22 @@
+.transition-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.fade {
+  &--enter {
+    opacity: 0;
+    transform: scale(0.9);
+    z-index: 1;
+  }
+  
+  &--enter-active {
+    z-index: 1;
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity 150ms ease-out, transform 250ms ease-out;
+  }
+}

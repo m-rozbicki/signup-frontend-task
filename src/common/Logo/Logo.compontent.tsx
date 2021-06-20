@@ -35,7 +35,7 @@ export const Logo = (props: SVGAttributes<SVGSVGElement>) => {
 
   return (
     <div>
-      <LogoSvg ref={svgElement} className={styles['logo']} {...props} />
+      <LogoSvg title="Logo" ref={svgElement} className={styles['logo']} {...props} />
     </div>
   );
 };

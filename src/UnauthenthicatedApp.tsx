@@ -1,11 +1,11 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, SwitchProps } from 'react-router-dom';
 import './App.css';
 import Signin from './signin/Signin/Signin';
 import Signup from './signup/Signup/Signup';
 
-const UnauthenthicatedApp = () => (
-  <Switch>
+const UnauthenthicatedApp = (props: SwitchProps) => (
+  <Switch {...props}>
     <Route path="/signin">
       <Signin />
     </Route>

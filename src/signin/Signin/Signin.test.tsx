@@ -1,6 +1,7 @@
 import React from 'react';
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { HashRouter } from 'react-router-dom';
 import Signin from './Signin';
 import { server } from '../../mocks/server';
 
@@ -15,7 +16,7 @@ describe('Signup', () => {
       password: 'wrongpassword',
     };
 
-    render(<Signin />);
+    render(<HashRouter><Signin /></HashRouter>);
     const emailInput = screen.getByRole('textbox', { name: /e-mail address/i, exact: false });
     const [passwordInput] = screen.getAllByLabelText(/password/i, {
       exact: false,
@@ -41,7 +42,7 @@ describe('Signup', () => {
       password: 'longenoughpassword',
     };
 
-    render(<Signin />);
+    render(<HashRouter><Signin /></HashRouter>);
     const emailInput = screen.getByRole('textbox', { name: /e-mail address/i, exact: false });
     const [passwordInput] = screen.getAllByLabelText(/password/i, {
       exact: false,
@@ -67,7 +68,7 @@ describe('Signup', () => {
       password: 'longenoughpassword',
     };
 
-    render(<Signin />);
+    render(<HashRouter><Signin /></HashRouter>);
     const emailInput = screen.getByRole('textbox', { name: /e-mail address/i, exact: false });
     const [passwordInput] = screen.getAllByLabelText(/password/i, {
       exact: false,

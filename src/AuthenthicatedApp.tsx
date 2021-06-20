@@ -1,9 +1,9 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, SwitchProps } from 'react-router-dom';
 import { Hello } from './home/Hello.component';
 
-const AuthenthicatedApp = () => (
-  <Switch>
+const AuthenthicatedApp = (props: SwitchProps) => (
+  <Switch {...props}>
     <Route path="*">
       <Hello />
     </Route>
