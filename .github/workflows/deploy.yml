@@ -1,0 +1,103 @@
+name: Build and Deploy
+on:
+  push:
+    branches:
+      - master
+      - develop
+  pull_request:
+    branches:
+      - master
+      - develop
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      REACT_APP_BACKEND_URL: https://api.orm-task.dev/v1
+    steps:
+      - name: Clone Repository
+        uses: actions/checkout@v2.3.4
+
+      - name: Retrieve Cache
+        uses: actions/cache@v2
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
+
+      - name: Install Dependencies
+        run: yarn install
+
+      - name: Run Linter
+        run: yarn lint
+
+      - name: Run Test Suites
+        run: yarn test
+
+      - name: Create Production Build
+        if: github.ref == 'refs/heads/master'
+        env:
+          REACT_APP_MSW_PATHNAME: 'orm-frontend-task'
+        run: yarn build
+
+      - name: Upload Production Artifacts
+        if: github.ref == 'refs/heads/master'
+        uses: actions/upload-artifact@v1
+        with:
+          name: production-build
+          path: build
+
+      - name: Create Staging Build
+        if: github.ref == 'refs/heads/develop'
+        env:
+          REACT_APP_MSW_PATHNAME: 'orm-frontend-task/staging'
+        run: yarn build:staging
+
+      - name: Upload Staging Artifacts
+        if: github.ref == 'refs/heads/develop'
+        uses: actions/upload-artifact@v1
+        with:
+          name: staging-build
+          path: build
+  
+  deploy-production:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/master'
+    needs: build
+    steps:
+      - name: Clone gh-pages branch
+        uses: actions/checkout@v2.3.4
+        with:
+          ref: master
+
+      - name: Fetch Artifacts
+        uses: actions/download-artifact@v1
+        with:
+          name: production-build
+
+      - name: Deploy to GH Pages
+        uses: JamesIves/github-pages-deploy-action@4.1.4
+        with:
+          branch: gh-pages
+          folder: production-build
+
+  deploy-staging:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/develop'
+    needs: build
+    steps:
+      - name: Clone gh-pages branch
+        uses: actions/checkout@v2.3.4
+        with:
+          ref: develop
+
+      - name: Fetch Artifacts
+        uses: actions/download-artifact@v1
+        with:
+          name: staging-build
+
+      - name: Deploy to GH Pages
+        uses: JamesIves/github-pages-deploy-action@4.1.4
+        with:
+          branch: gh-pages
+          folder: staging-build
+          target-folder: staging

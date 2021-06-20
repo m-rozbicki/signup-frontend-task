@@ -1,17 +1,31 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import './App.css';
+import { HashRouter } from 'react-router-dom';
+import { AuthProvider, useAuth } from './services/Auth.context';
+import { AuthenthicatedApp } from './AuthenthicatedApp';
+import { UnauthenthicatedApp } from './UnauthenthicatedApp';
 
-const App = () => {
+const App = () => (
+  <AuthProvider>
+    <HashRouter>
+      <TransitionSwitch />
+    </HashRouter>
+  </AuthProvider>
+);
+
+const TransitionSwitch = () => {
+  const { user } = useAuth();
+
   return (
-    <Router>
-      <Switch>
-        <Route path="/signin">Sign In</Route>
-        <Route path="/signup">Sign Up</Route>
-        <Route path="/">Root</Route>
-      </Switch>
-    </Router>
+    <>
+      {
+        user
+          ? <AuthenthicatedApp />
+          : <UnauthenthicatedApp />
+      }
+    </>
   );
 };
 
-export default App;
+export {
+  App,
+};

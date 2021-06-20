@@ -1,46 +1,66 @@
-# Getting Started with Create React App
+# Frontend Recruitment Task
+This project is an implementation of a recruitment task.
+The goal was to create two pages with sign up and sign in form.
+React with TypeScript was chosen as the framework and Airbnb's config was adapted for linting.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+There are 3 deployments of this project
+- https://mrormcandidate.github.io/orm-frontend-task - master branch
+- https://mrormcandidate.github.io/orm-frontend-task/staging - develop branch
+- https://mrormcandidate.github.io/orm-frontend-task/with-transitions - branch with page transitions not removed
 
-## Available Scripts
+You can use following credentials to sign in:
+```
+e-mail: john.doe@mail.com
+password: longenoughpassword
+```
 
-In the project directory, you can run:
+You can try signing in / up with special e-mails / names
+- Sign in with "fail@me.com" / sign up with "fail me" name to simulate internal server error
+- Sign in with "timeout@me.com" / sign up with "timeout me" name to simulate no server response
+- Sign in with "network.error@me.com" / sign up with "network error me" name to simulate network error
+- Sign up with "already@registered.com" e-mail to simulate situation where provided e-mail is already registered
 
-### `yarn start`
+## Technology Stack
+- [React](https://reactjs.org/) - a JavaScript library for building user interfaces
+- [TypeScript](https://www.typescriptlang.org/) - static type definitions for JavaScript
+- [Formik](https://formik.org/) & [Yup](https://github.com/jquense/yup) - keeps track of values/errors/visited fields and validation
+- [Mock Service Worker](https://mswjs.io/) - intercepts requests on the network level, used for tests and prototyping
+- [React Router](https://reactrouter.com/) - collection of navigational components
+- [React Transition Group](https://reactcommunity.org/react-transition-group/) - exposes transition stages, manages classes and group elements
+- [Jest](https://jestjs.io/) & [React Testing Library](https://testing-library.com/) - JavaScript Testing Framework and testing utilities
+- [GitHub Actions](https://github.com/features/actions) & [GitHub Pages](https://pages.github.com/) - builds, tests, and deploys your code right from GitHub
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Installation
+Install with yarn:
+```
+yarn install
+```
+Lint and run tests:
+```
+yarn lint && yarn test
+```
+Start the app:
+```
+yarn start
+```
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Tests
+Tests can be found along the components. Mock Service Worker was used both for tests and API response simulation in the built app so real (Axios) requests could have been implemented. Validation schemas are shared between the sign up and sign in forms and MSW.
 
-### `yarn test`
+## CI/CD
+GitHub Actions are set up to lint, test and build on pull requests to master and develop branches and additionally to deploy to GitHub Pages when pull requests are merged.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- https://mrormcandidate.github.io/orm-frontend-task
+- https://mrormcandidate.github.io/orm-frontend-task/staging
 
-### `yarn build`
+## Design
+The design follows the provided wireframes. Color scheme was inspired by blackberries and raspberries. A simple logo is included that transforms between the two to catch user's attention and to make the design more fun and remarkable. The animation is slightly randomized every time.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Page Transitions
+I've decided to remove page transitions from the main branches. Despite React Transition Group being mentioned in React documentation and seeming to be the most popular solution to the problem, it turned out to be outdated and  buggy. I was able to make it work with nodeRef workarounds and while the result was okay on the desktop, it caused glitches on mobile devices that I couldn't resolve. I didn't find a better way to solve this for now and I didn't want to delay the project.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+The removed solution can be found at:
+- https://github.com/mrormcandidate/orm-frontend-task/tree/with-transitions
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+And it's deployed to:
+- https://mrormcandidate.github.io/orm-frontend-task/with-transitions

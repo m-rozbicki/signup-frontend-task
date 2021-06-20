@@ -1,0 +1,46 @@
+@use '../colors';
+
+.layout {
+  position: absolute;
+  background-color: colors.$secondary;
+  width: 100%;
+  min-height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  &__container {
+    width: calc(100% - 1em);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 2em 0 4em;
+  }
+  
+  &__content {
+    width: 30em;
+    max-width: 100%;
+  }
+  
+  &__children-container {
+    background-color: colors.$primary;
+    color: colors.$secondary;
+    padding: 2em;
+    border-radius: 1em;
+  }
+
+  &__link {
+    margin-top: 1em;
+    text-align: center;
+    color: colors.$primary;
+
+    a, a:visited {
+      color: colors.$primary;
+    }
+
+    a:active {
+      color: colors.$active;
+    }
+  }
+}

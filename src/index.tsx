@@ -1,17 +1,28 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { App } from './App';
+import { worker } from './mocks/browser';
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root'),
-);
+const main = async () => {
+  if (window.location.pathname === `/${process.env.REACT_APP_MSW_PATHNAME}`) {
+    window.location.pathname += '/';
+    return;
+  }
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+  await worker.start({
+    waitUntilReady: true,
+    serviceWorker: {
+      url: `/${process.env.REACT_APP_MSW_PATHNAME}/mockServiceWorker.js`,
+    },
+  });
+
+  ReactDOM.render(
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>,
+    document.getElementById('root'),
+  );
+};
+
+main();

@@ -1,0 +1,11 @@
+.thank-you {
+    text-align: center;
+    
+    & > div {
+        margin: 1em 0;
+    }
+
+    &__ok-hand {
+        font-size: 5em;
+    }
+}
