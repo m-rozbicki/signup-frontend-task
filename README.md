@@ -34,4 +34,4 @@ Tests can be found along the components. Mock Service Worker was used both for t
 To be described.
 
 ## Design
-The design follows the provided wireframes. Color scheme was inspired by blackberries and raspberries. A simple logo is included that transforms between the two to catch user's attention and make the design more fun and remarkable.
+The design follows the provided wireframes. Color scheme was inspired by blackberries and raspberries. A simple logo is included that transforms between the two to catch user's attention and make the design more fun and remarkable. The animation is slightly randomized every time.
