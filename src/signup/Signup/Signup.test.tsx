@@ -2,7 +2,7 @@ import React from 'react';
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { HashRouter } from 'react-router-dom';
-import Signup from './Signup';
+import { Signup } from './Signup.component';
 import { server } from '../../mocks/server';
 
 describe('Signup', () => {

@@ -1,8 +1,8 @@
 import { rest, RestRequest } from 'msw';
 import httpStatus from 'http-status-codes';
-import { SignupFormValues } from '../signup/SignupForm/SignupForm';
+import { SignupFormValues } from '../signup/SignupForm/SignupForm.component';
 import { SignupValidationSchema } from '../signup/SignupForm/SignupForm.schema';
-import { SigninFormValues } from '../signin/SigninForm/SigninForm';
+import { SigninFormValues } from '../signin/SigninForm/SigninForm.component';
 import { SigninValidationSchema } from '../signin/SigninForm/SigninForm.schema';
 
 const { REACT_APP_BACKEND_URL } = process.env;
@@ -13,7 +13,7 @@ const delay = testEnv ? 0 : 1500;
 const randomizeDelay = (standardDelay: number) =>
   standardDelay + (!testEnv ? Math.random() * 1000 - 500 : 0);
 
-export const handlers = [
+const handlers = [
   rest.post(`${REACT_APP_BACKEND_URL}/users/register`, async (req: RestRequest<SignupFormValues>, res, ctx) => {
     try {
       SignupValidationSchema.validateSync(req.body);
@@ -118,3 +118,7 @@ export const handlers = [
     );
   }),
 ];
+
+export {
+  handlers,
+};

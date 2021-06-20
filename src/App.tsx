@@ -4,7 +4,7 @@ import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import { AuthProvider, useAuth } from './services/Auth.context';
 import { AuthenthicatedApp } from './AuthenthicatedApp';
 import { UnauthenthicatedApp } from './UnauthenthicatedApp';
-import styles from './App.module.scss';
+import transitions from './common/transitions.module.scss';
 
 const App = () => (
   <AuthProvider>
@@ -24,13 +24,13 @@ const TransitionSwitch = () => {
       <CSSTransition
         key={location.pathname}
         classNames={{
-          enter: styles['fade--enter'],
-          enterActive: styles['fade--enter-active'],
+          enter: transitions['fade--enter'],
+          enterActive: transitions['fade--enter-active'],
         }}
         timeout={350}
         nodeRef={nodeRef}
       >
-        <div ref={nodeRef} className={styles['transition-container']}>
+        <div ref={nodeRef} className={transitions['transition-container']}>
           {
             user
               ? <AuthenthicatedApp location={location} />
@@ -42,4 +42,6 @@ const TransitionSwitch = () => {
   );
 };
 
-export default App;
+export {
+  App,
+};

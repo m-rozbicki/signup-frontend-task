@@ -19,4 +19,6 @@ const Submit = ({
   </button>
 );
 
-export default Submit;
+export {
+  Submit,
+};

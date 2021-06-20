@@ -2,7 +2,7 @@ import React, { useRef, useEffect, SVGAttributes } from 'react';
 import { ReactComponent as LogoSvg } from './logo.svg';
 import styles from './Logo.module.scss';
 
-export const Logo = (props: SVGAttributes<SVGSVGElement>) => {
+const Logo = (props: SVGAttributes<SVGSVGElement>) => {
   const svgElement = useRef<SVGSVGElement>(null);
 
   useEffect(() => {
@@ -38,4 +38,8 @@ export const Logo = (props: SVGAttributes<SVGSVGElement>) => {
       <LogoSvg title="Logo" ref={svgElement} className={styles['logo']} {...props} />
     </div>
   );
+};
+
+export {
+  Logo,
 };

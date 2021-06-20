@@ -21,9 +21,11 @@ const AuthProvider = (props: AuthProviderProps) => {
   const [user, setUser] = useState<RegisteredUser | null>(null);
 
   const login = (authenthicatedUser: RegisteredUser) => {
+    // this is for demo purposes
     const encodedUser = encodeURIComponent(JSON.stringify(authenthicatedUser));
     const weekInSeconds = 604800;
     document.cookie = `user=${encodedUser};samesite=strict;max-age=${weekInSeconds}`;
+
     setUser(authenthicatedUser);
   };
 

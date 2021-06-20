@@ -7,4 +7,6 @@ const Form = ({ children, ...otherProps }: FormHTMLAttributes<HTMLFormElement>) 
   </form>
 );
 
-export default Form;
+export {
+  Form,
+};

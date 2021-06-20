@@ -17,10 +17,12 @@ const Layout = ({ title = '', link = '', children = null }: LayoutProps) => (
       <main className={styles['layout__content']}>
         <h1>{title}</h1>
         <div className={styles['layout__children-container']}>{children}</div>
-        <div className={styles['layout__link']}>{link}</div>
+        {link && <div className={styles['layout__link']}>{link}</div>}
       </main>
     </div>
   </div>
 );
 
-export default Layout;
+export {
+  Layout,
+};
