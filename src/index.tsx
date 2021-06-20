@@ -5,10 +5,15 @@ import { worker } from './mocks/browser';
 import './index.css';
 
 const main = async () => {
+  if (window.location.pathname === `/${process.env.REACT_APP_MSW_PATHNAME}`) {
+    window.location.pathname += '/';
+    return;
+  }
+
   await worker.start({
     waitUntilReady: true,
     serviceWorker: {
-      url: '/mockServiceWorker.js',
+      url: `/${process.env.REACT_APP_MSW_PATHNAME}/mockServiceWorker.js`,
     },
   });
 

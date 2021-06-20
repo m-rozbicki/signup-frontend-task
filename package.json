@@ -2,7 +2,7 @@
   "name": "orm-frontend-task",
   "version": "1.0.0",
   "private": true,
-  "homepage": ".",
+  "homepage": "https://mrormcandidate.github.io/orm-frontend-task",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
@@ -33,6 +33,7 @@
     "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "build:staging": "PUBLIC_URL=https://mrormcandidate.github.io/orm-frontend-task/staging react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "tsc --noEmit && eslint src/**/*.ts{,x}",

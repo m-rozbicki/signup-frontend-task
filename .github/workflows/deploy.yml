@@ -35,6 +35,8 @@ jobs:
 
       - name: Create Production Build
         if: github.ref == 'refs/heads/master'
+        env:
+          REACT_APP_MSW_PATHNAME: 'orm-frontend-task'
         run: yarn build
 
       - name: Upload Production Artifacts
@@ -46,7 +48,9 @@ jobs:
 
       - name: Create Staging Build
         if: github.ref == 'refs/heads/develop'
-        run: yarn build
+        env:
+          REACT_APP_MSW_PATHNAME: 'orm-frontend-task/staging'
+        run: yarn build:staging
 
       - name: Upload Staging Artifacts
         if: github.ref == 'refs/heads/develop'
