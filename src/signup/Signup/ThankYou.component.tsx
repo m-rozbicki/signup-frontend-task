@@ -14,6 +14,8 @@ const ThankYou = ({ user } : ThankYouProps) => (
     <div>
       Thank you for registering<br />
       <strong>{ user.name }</strong><br />
+    </div>
+    <div>
       We would send an activation email to<br />
       <strong>{ user.email }</strong><br />
     </div>
