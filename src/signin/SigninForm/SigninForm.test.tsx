@@ -58,7 +58,7 @@ describe('Signup form', () => {
     const error = screen.getByRole('alert', { name: /e-mail address error/i });
     // when
     await userEvent.type(input, 'invalid email');
-    await userEvent.click(document.body)
+    await userEvent.click(document.body);
 
     // then
     await waitFor(() => {
