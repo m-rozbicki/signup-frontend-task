@@ -28,11 +28,11 @@ describe('Signup', () => {
     const formError = screen.getByRole('alert', { name: /form error/i, exact: false });
 
     // when
-    userEvent.type(emailInput, initialValues.email);
-    userEvent.type(fullNameInput, initialValues.name);
-    userEvent.type(passwordInput, initialValues.password);
-    userEvent.type(confirmPasswordInput, initialValues.confirmPassword);
-    userEvent.click(submitButton);
+    await userEvent.type(emailInput, initialValues.email);
+    await userEvent.type(fullNameInput, initialValues.name);
+    await userEvent.type(passwordInput, initialValues.password);
+    await userEvent.type(confirmPasswordInput, initialValues.confirmPassword);
+    await userEvent.click(submitButton);
 
     // then
     await waitFor(() => {
@@ -59,11 +59,11 @@ describe('Signup', () => {
     const formError = screen.getByRole('alert', { name: /form error/i, exact: false });
 
     // when
-    userEvent.type(emailInput, initialValues.email);
-    userEvent.type(fullNameInput, initialValues.name);
-    userEvent.type(passwordInput, initialValues.password);
-    userEvent.type(confirmPasswordInput, initialValues.confirmPassword);
-    userEvent.click(submitButton);
+    await userEvent.type(emailInput, initialValues.email);
+    await userEvent.type(fullNameInput, initialValues.name);
+    await userEvent.type(passwordInput, initialValues.password);
+    await userEvent.type(confirmPasswordInput, initialValues.confirmPassword);
+    await userEvent.click(submitButton);
 
     // then
     await waitFor(() => {
@@ -90,11 +90,11 @@ describe('Signup', () => {
     const formError = screen.getByRole('alert', { name: /form error/i, exact: false });
 
     // when
-    userEvent.type(emailInput, initialValues.email);
-    userEvent.type(fullNameInput, initialValues.name);
-    userEvent.type(passwordInput, initialValues.password);
-    userEvent.type(confirmPasswordInput, initialValues.confirmPassword);
-    userEvent.click(submitButton);
+    await userEvent.type(emailInput, initialValues.email);
+    await userEvent.type(fullNameInput, initialValues.name);
+    await userEvent.type(passwordInput, initialValues.password);
+    await userEvent.type(confirmPasswordInput, initialValues.confirmPassword);
+    await userEvent.click(submitButton);
 
     // then
     await waitFor(() => {
@@ -120,11 +120,11 @@ describe('Signup', () => {
     const submitButton = screen.getByRole('button', { name: /continue/i, exact: false });
 
     // when
-    userEvent.type(emailInput, initialValues.email);
-    userEvent.type(fullNameInput, initialValues.name);
-    userEvent.type(passwordInput, initialValues.password);
-    userEvent.type(confirmPasswordInput, initialValues.confirmPassword);
-    userEvent.click(submitButton);
+    await userEvent.type(emailInput, initialValues.email);
+    await userEvent.type(fullNameInput, initialValues.name);
+    await userEvent.type(passwordInput, initialValues.password);
+    await userEvent.type(confirmPasswordInput, initialValues.confirmPassword);
+    await userEvent.click(submitButton);
 
     // then
     await waitFor(() => {

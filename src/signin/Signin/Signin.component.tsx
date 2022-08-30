@@ -1,26 +1,10 @@
 import React, { useState, useCallback } from 'react';
-import { AxiosError } from 'axios';
 import { Link } from 'react-router-dom';
 import { Layout } from '../../common/Layout/Layout.component';
 import { apiClient } from '../../services/apiClient';
-import { SigninForm, SigninFormValues } from '../SigninForm/SigninForm.component';
 import { useAuth } from '../../services/Auth.context';
-
-enum AxiosCode {
-  TimeoutError = 'ECONNABORTED',
-}
-
-const extractMessage = (error: AxiosError) => {
-  if (typeof error?.response?.data?.message === 'string') {
-    return error.response.data.message;
-  }
-
-  if (error.code === AxiosCode.TimeoutError) {
-    return 'Error connecting to server. Please check your connection and contact support if issues persist.';
-  }
-
-  return error.message;
-};
+import { SigninForm, SigninFormValues } from '../SigninForm/SigninForm.component';
+import { extractMessage } from '../../common/utils/errors';
 
 const link = <>Not our member yet? <Link to="/signup">Click here to create new account</Link></>;
 
