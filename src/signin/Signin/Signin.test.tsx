@@ -25,9 +25,9 @@ describe('Signup', () => {
     const formError = screen.getByRole('alert', { name: /form error/i, exact: false });
 
     // when
-    userEvent.type(emailInput, initialValues.email);
-    userEvent.type(passwordInput, initialValues.password);
-    userEvent.click(submitButton);
+    await userEvent.type(emailInput, initialValues.email);
+    await userEvent.type(passwordInput, initialValues.password);
+    await userEvent.click(submitButton);
 
     // then
     await waitFor(() => {
@@ -51,9 +51,9 @@ describe('Signup', () => {
     const formError = screen.getByRole('alert', { name: /form error/i, exact: false });
 
     // when
-    userEvent.type(emailInput, initialValues.email);
-    userEvent.type(passwordInput, initialValues.password);
-    userEvent.click(submitButton);
+    await userEvent.type(emailInput, initialValues.email);
+    await userEvent.type(passwordInput, initialValues.password);
+    await userEvent.click(submitButton);
 
     // then
     await waitFor(() => {
@@ -77,9 +77,9 @@ describe('Signup', () => {
     const formError = screen.getByRole('alert', { name: /form error/i, exact: false });
 
     // when
-    userEvent.type(emailInput, initialValues.email);
-    userEvent.type(passwordInput, initialValues.password);
-    userEvent.click(submitButton);
+    await userEvent.type(emailInput, initialValues.email);
+    await userEvent.type(passwordInput, initialValues.password);
+    await userEvent.click(submitButton);
 
     // then
     await waitFor(() => {

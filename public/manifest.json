@@ -1,6 +1,6 @@
 {
-  "short_name": "MR ORM",
-  "name": "MR ORM Frontend Task",
+  "short_name": "Signup Task",
+  "name": "Signup Frontend Task",
   "icons": [
     {
         "src": "android-chrome-192x192.png",
