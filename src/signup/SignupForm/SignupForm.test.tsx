@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  render, screen, waitFor, fireEvent,
+  render, screen, waitFor,
 } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { SignupForm } from './SignupForm.component';
@@ -46,10 +46,11 @@ describe('Signup form', () => {
     const confirmPasswordError = screen.getByRole('alert', { name: /confirm your password error/i });
 
     // when
-    fireEvent.blur(emailInput);
-    fireEvent.blur(fullNameInput);
-    fireEvent.blur(passwordInput);
-    fireEvent.blur(confirmPasswordInput);
+    await userEvent.click(emailInput);
+    await userEvent.click(fullNameInput);
+    await userEvent.click(passwordInput);
+    await userEvent.click(confirmPasswordInput);
+    await userEvent.click(document.body);
 
     // then
     await waitFor(() => {
@@ -69,7 +70,7 @@ describe('Signup form', () => {
 
     // when
     await userEvent.type(input, 'invalid email');
-    fireEvent.blur(input);
+    await userEvent.click(document.body);
 
     // then
     await waitFor(() => {
@@ -86,7 +87,7 @@ describe('Signup form', () => {
 
     // when
     await userEvent.type(input, 'invalid-name');
-    fireEvent.blur(input);
+    await userEvent.click(document.body);
 
     // then
     await waitFor(() => {
@@ -103,7 +104,7 @@ describe('Signup form', () => {
 
     // when
     await userEvent.type(input, 'short');
-    fireEvent.blur(input);
+    await userEvent.click(document.body);
 
     // then
     await waitFor(() => {
@@ -126,7 +127,7 @@ describe('Signup form', () => {
     // when
     await userEvent.type(passwordInput, 'firstPassword');
     await userEvent.type(confirmPasswordInput, 'secondPassword');
-    fireEvent.blur(confirmPasswordInput);
+    await userEvent.click(document.body);
 
     // then
     await waitFor(() => {
