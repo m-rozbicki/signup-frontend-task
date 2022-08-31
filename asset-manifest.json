@@ -1,21 +1,14 @@
 {
   "files": {
-    "main.css": "/orm-frontend-task/static/css/main.324faf8a.chunk.css",
-    "main.js": "/orm-frontend-task/static/js/main.5b2352f8.chunk.js",
-    "main.js.map": "/orm-frontend-task/static/js/main.5b2352f8.chunk.js.map",
-    "runtime-main.js": "/orm-frontend-task/static/js/runtime-main.38db0f90.js",
-    "runtime-main.js.map": "/orm-frontend-task/static/js/runtime-main.38db0f90.js.map",
-    "static/js/2.5b79d42b.chunk.js": "/orm-frontend-task/static/js/2.5b79d42b.chunk.js",
-    "static/js/2.5b79d42b.chunk.js.map": "/orm-frontend-task/static/js/2.5b79d42b.chunk.js.map",
-    "index.html": "/orm-frontend-task/index.html",
-    "static/css/main.324faf8a.chunk.css.map": "/orm-frontend-task/static/css/main.324faf8a.chunk.css.map",
-    "static/js/2.5b79d42b.chunk.js.LICENSE.txt": "/orm-frontend-task/static/js/2.5b79d42b.chunk.js.LICENSE.txt",
-    "static/media/logo.d206c7a9.svg": "/orm-frontend-task/static/media/logo.d206c7a9.svg"
+    "main.css": "/signup-frontend-task/static/css/main.a0fdc5c6.css",
+    "main.js": "/signup-frontend-task/static/js/main.9d8008ab.js",
+    "static/media/logo.svg": "/signup-frontend-task/static/media/logo.d206c7a902c9a948a0ddacc9ba3afa1f.svg",
+    "index.html": "/signup-frontend-task/index.html",
+    "main.a0fdc5c6.css.map": "/signup-frontend-task/static/css/main.a0fdc5c6.css.map",
+    "main.9d8008ab.js.map": "/signup-frontend-task/static/js/main.9d8008ab.js.map"
   },
   "entrypoints": [
-    "static/js/runtime-main.38db0f90.js",
-    "static/js/2.5b79d42b.chunk.js",
-    "static/css/main.324faf8a.chunk.css",
-    "static/js/main.5b2352f8.chunk.js"
+    "static/css/main.a0fdc5c6.css",
+    "static/js/main.9d8008ab.js"
   ]
 }
