@@ -6,7 +6,6 @@ React with TypeScript was chosen as the framework and Airbnb's config was adapte
 There are 3 deployments of this project
 - https://m-rozbicki.github.io/signup-frontend-task - master branch
 - https://m-rozbicki.github.io/signup-frontend-task/staging - develop branch
-- https://m-rozbicki.github.io/signup-frontend-task/with-transitions - branch with page transitions not removed
 
 You can use following credentials to sign in:
 ```
@@ -55,12 +54,3 @@ GitHub Actions are set up to lint, test and build on pull requests to master and
 
 ## Design
 The design follows the provided wireframes. Color scheme was inspired by blackberries and raspberries. A simple logo is included that transforms between the two to catch user's attention and to make the design more fun and remarkable. The animation is slightly randomized every time.
-
-## Page Transitions
-I've decided to remove page transitions from the main branches. Despite React Transition Group being mentioned in React documentation and seeming to be the most popular solution to the problem, it turned out to be outdated and  buggy. I was able to make it work with nodeRef workarounds and while the result was okay on the desktop, it caused glitches on mobile devices that I couldn't resolve. I didn't find a better way to solve this for now and I didn't want to delay the project.
-
-The removed solution can be found at:
-- https://github.com/m-rozbicki/signup-frontend-task/tree/with-transitions
-
-And it's deployed to:
-- https://m-rozbicki.github.io/signup-frontend-task/with-transitions
