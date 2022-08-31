@@ -33,14 +33,12 @@ describe('App', () => {
     const submitButton = screen.getByRole('button', { name: /continue/i, exact: false });
 
     // when
-    userEvent.type(emailInput, initialValues.email);
-    userEvent.type(passwordInput, initialValues.password);
-    userEvent.click(submitButton);
+    await userEvent.type(emailInput, initialValues.email);
+    await userEvent.type(passwordInput, initialValues.password);
+    await userEvent.click(submitButton);
 
     // then
-    await waitFor(() => {
-      const Logout = screen.getByRole('button', { name: /logout/i, exact: false });
-      expect(Logout).toBeInTheDocument();
-    });
+    const Logout = await screen.findByRole('button', { name: /logout/i, exact: false });
+    expect(Logout).toBeInTheDocument();
   });
 });

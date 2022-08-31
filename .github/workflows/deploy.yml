@@ -13,7 +13,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      REACT_APP_BACKEND_URL: https://api.orm-task.dev/v1
+      REACT_APP_BACKEND_URL: https://api.signup-task.dev/v1
     steps:
       - name: Clone Repository
         uses: actions/checkout@v2.3.4
@@ -36,7 +36,7 @@ jobs:
       - name: Create Production Build
         if: github.ref == 'refs/heads/master'
         env:
-          REACT_APP_MSW_PATHNAME: 'orm-frontend-task'
+          REACT_APP_MSW_PATHNAME: 'signup-frontend-task'
         run: yarn build
 
       - name: Upload Production Artifacts
@@ -49,7 +49,7 @@ jobs:
       - name: Create Staging Build
         if: github.ref == 'refs/heads/develop'
         env:
-          REACT_APP_MSW_PATHNAME: 'orm-frontend-task/staging'
+          REACT_APP_MSW_PATHNAME: 'signup-frontend-task/staging'
         run: yarn build:staging
 
       - name: Upload Staging Artifacts
