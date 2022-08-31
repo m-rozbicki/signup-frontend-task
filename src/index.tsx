@@ -17,15 +17,19 @@ const main = async () => {
     },
   });
 
-  const root = createRoot(
-    document.getElementById('root')!,
-  );
+  const rootElement = document.getElementById('root');
 
-  root.render(
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>,
-  );
+  if (rootElement) {
+    const root = createRoot(
+      rootElement,
+    );
+  
+    root.render(
+      <React.StrictMode>
+        <App />
+      </React.StrictMode>,
+    );
+  }
 };
 
 main();
