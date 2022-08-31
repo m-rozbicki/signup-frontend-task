@@ -1,21 +1,14 @@
 {
   "files": {
-    "main.css": "https://mrormcandidate.github.io/orm-frontend-task/staging/static/css/main.324faf8a.chunk.css",
-    "main.js": "https://mrormcandidate.github.io/orm-frontend-task/staging/static/js/main.ff7893fe.chunk.js",
-    "main.js.map": "https://mrormcandidate.github.io/orm-frontend-task/staging/static/js/main.ff7893fe.chunk.js.map",
-    "runtime-main.js": "https://mrormcandidate.github.io/orm-frontend-task/staging/static/js/runtime-main.f6986119.js",
-    "runtime-main.js.map": "https://mrormcandidate.github.io/orm-frontend-task/staging/static/js/runtime-main.f6986119.js.map",
-    "static/js/2.a2f8fefd.chunk.js": "https://mrormcandidate.github.io/orm-frontend-task/staging/static/js/2.a2f8fefd.chunk.js",
-    "static/js/2.a2f8fefd.chunk.js.map": "https://mrormcandidate.github.io/orm-frontend-task/staging/static/js/2.a2f8fefd.chunk.js.map",
-    "index.html": "https://mrormcandidate.github.io/orm-frontend-task/staging/index.html",
-    "static/css/main.324faf8a.chunk.css.map": "https://mrormcandidate.github.io/orm-frontend-task/staging/static/css/main.324faf8a.chunk.css.map",
-    "static/js/2.a2f8fefd.chunk.js.LICENSE.txt": "https://mrormcandidate.github.io/orm-frontend-task/staging/static/js/2.a2f8fefd.chunk.js.LICENSE.txt",
-    "static/media/logo.d206c7a9.svg": "https://mrormcandidate.github.io/orm-frontend-task/staging/static/media/logo.d206c7a9.svg"
+    "main.css": "https://m-rozbicki.github.io/signup-frontend-task/staging/static/css/main.a0fdc5c6.css",
+    "main.js": "https://m-rozbicki.github.io/signup-frontend-task/staging/static/js/main.8a930649.js",
+    "static/media/logo.svg": "https://m-rozbicki.github.io/signup-frontend-task/staging/static/media/logo.d206c7a902c9a948a0ddacc9ba3afa1f.svg",
+    "index.html": "https://m-rozbicki.github.io/signup-frontend-task/staging/index.html",
+    "main.a0fdc5c6.css.map": "https://m-rozbicki.github.io/signup-frontend-task/staging/static/css/main.a0fdc5c6.css.map",
+    "main.8a930649.js.map": "https://m-rozbicki.github.io/signup-frontend-task/staging/static/js/main.8a930649.js.map"
   },
   "entrypoints": [
-    "static/js/runtime-main.f6986119.js",
-    "static/js/2.a2f8fefd.chunk.js",
-    "static/css/main.324faf8a.chunk.css",
-    "static/js/main.ff7893fe.chunk.js"
+    "static/css/main.a0fdc5c6.css",
+    "static/js/main.8a930649.js"
   ]
 }
