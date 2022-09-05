@@ -3,7 +3,7 @@ This project is an implementation of a recruitment task.
 The goal was to create two pages with sign up and sign in form.
 React with TypeScript was chosen as the framework and Airbnb's config was adapted for linting.
 
-There are 3 deployments of this project
+There are 2 deployments of this project
 - https://m-rozbicki.github.io/signup-frontend-task - master branch
 - https://m-rozbicki.github.io/signup-frontend-task/staging - develop branch
 
